@@ -1,11 +1,13 @@
 #!/usr/bin/with-contenv /bin/sh
 set -e
 
-if [! -d /movies ]; then
+/sbin/rpcbind -f &
+
+if [ ! -d /movies ]; then
   mkdir /movies
 fi
 
-if [! -d /downloads ]; then
+if [ ! -d /downloads ]; then
   mkdir /downloads
 fi
 
