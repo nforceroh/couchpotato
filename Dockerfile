@@ -1,16 +1,15 @@
-FROM lsiobase/alpine.python:3.8
-MAINTAINER sylvain@nforcer.com
+FROM nforceroh/docker-alpine-python2
 
-ARG BUILD_DATE
-ARG VERSION
+LABEL maintainer="sylvain@nforcer.com"
 
-ENV PYTHONIOENCODING="UTF-8"
+ENV PYTHONIOENCODING=UTF-8
+ENV LC_ALL=en_US.UTF-8  
+ENV LANG=en_US.UTF-8  
+ENV LANGUAGE=en_US.UTF-8  
 
 RUN \
- echo "Install nfs needs" && \
- apk add --no-cache nfs-utils rpcbind tzdata && \
  echo "**** install app ****" && \
- git clone --depth 1 https://github.com/CouchPotato/CouchPotatoServer /app/couchpotato
+ git clone --depth 1 https://github.com/CouchPotato/CouchPotatoServer /app
 
  
 
@@ -18,6 +17,6 @@ COPY rootfs /
 
 # ports and volumes
 EXPOSE 5050
-WORKDIR /app/couchpotato
+WORKDIR /app
 VOLUME /config
 
