@@ -8,8 +8,9 @@ ENV LANG=en_US.UTF-8
 ENV LANGUAGE=en_US.UTF-8  
 
 RUN \
- echo "**** install app ****" && \
- git clone --depth 1 https://github.com/CouchPotato/CouchPotatoServer /app
+    apk add py-lxml py-openssl \
+    && echo "**** install app ****" \
+    && git clone --depth 1 https://github.com/CouchPotato/CouchPotatoServer /app
 
 COPY rootfs /
 
@@ -17,3 +18,4 @@ COPY rootfs /
 EXPOSE 5050
 WORKDIR /app
 VOLUME /config
+ENTRYPOINT [ "/init" ]
