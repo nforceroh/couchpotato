@@ -1,4 +1,4 @@
-FROM nforceroh/docker-alpine-python2
+FROM nforceroh/d_alpine-s6:v3.10
 
 LABEL maintainer="sylvain@nforcer.com"
 
@@ -11,12 +11,9 @@ RUN \
  echo "**** install app ****" && \
  git clone --depth 1 https://github.com/CouchPotato/CouchPotatoServer /app
 
- 
-
 COPY rootfs /
 
 # ports and volumes
 EXPOSE 5050
 WORKDIR /app
 VOLUME /config
-
