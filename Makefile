@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 SHELL := /bin/bash
-IMG_NAME := d_alpine_couchpotato
+IMG_NAME := d_alpine-couchpotato
 IMG_REPO := nforceroh
 VERSION := $(shell cat .tag )
 
