@@ -2,4 +2,5 @@
 echo "STARTING SERVICE: couchpotato"
 UMASK_SET=${UMASK_SET:-000}
 umask ${UMASK_SET}
-/bin/s6-setuidgid abc python /app/CouchPotato.py --console_log --config_file=/config/config.ini --data_dir=/config/data
+
+/bin/s6-setuidgid abc /usr/bin/python2 /app/CouchPotato.py --console_log --config_file=/config/config.ini --data_dir=/config/data
